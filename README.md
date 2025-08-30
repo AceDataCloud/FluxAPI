@@ -153,15 +153,15 @@ As you can see, the generated effect is the result of editing the original image
 
 ## More
 
-For more info, please check below APIs and integration documents
+For more info, please check below APIs and integration documents.
 
-| API | Path | Integration Document |
+| API | Path | Integration Guidance |
 | ---- | ---- | ------------ |
 | [Flux Images Generation API](http://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) | `/flux/images` | [Flux Images Generation API Integration Guide](http://platform.acedata.cloud/documents/92754994-3970-4f2a-9bf3-113149c25c11) |
 | [Flux Tasks API](http://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) | `/flux/tasks` | [Flux Tasks API Integration Guide](http://platform.acedata.cloud/documents/5998d153-b9a6-4798-b5d9-8f523d0d626f) |
 
 Base URL: [https://api.acedata.cloud](https://api.acedata.cloud)
 
-## Support 
+## Support
 
 If you meet any issue, check our from [support info](https://platform.acedata.cloud/support).
