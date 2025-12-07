@@ -33,7 +33,7 @@ We will take a task ID returned by the Flux Images Generation API as an example 
 **Request Headers** include:
 
 - `accept`: Specifies that the response should be in JSON format, set to `application/json`.
-- `authorization`: The key to call the API, which can be selected directly after application.
+- `authorization`: The key for calling the API, which can be selected directly after application.
 
 **Request Body** includes:
 
