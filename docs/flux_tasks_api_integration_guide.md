@@ -33,7 +33,7 @@ We will take a task ID returned by the Flux Images Generation API as an example 
 **Request Headers** include:
 
 - `accept`: Specifies that the response should be in JSON format, set to `application/json`.
-- `authorization`: The key to call the API, which can be selected directly after application.
+- `authorization`: The key for calling the API, which can be selected directly after application.
 
 **Request Body** includes:
 
@@ -89,7 +89,7 @@ print(response.text)
 
 ### Response Example
 
-Upon successful request, the API will return the detailed information of the image task. For example:
+Upon a successful request, the API will return the detailed information of the image task. For example:
 
 ```json
 {
@@ -153,7 +153,7 @@ Some code examples are as follows:
 
 ### Response Example
 
-Upon successful request, the API will return the specific details of all batch image tasks. For example:
+Upon a successful request, the API will return the specific details of all batch image tasks. For example:
 ```json
 {
   "items": [
@@ -222,11 +222,6 @@ Upon successful request, the API will return the specific details of all batch i
 }
 ```
 
-The returned result contains multiple fields, among which `items` includes the specific details of batch image tasks, and each image task's specific information is the same as the fields mentioned above.
-
-- `items`, all specific details of batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
-- `count`, the number of image tasks in this batch query.
-
 #### CURL
 
 ```bash
@@ -287,4 +282,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the FLux Tasks API to query all specific details of single or batch image tasks. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the FLux Tasks API to query the specific details of single or batch image tasks. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
