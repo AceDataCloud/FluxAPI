@@ -89,7 +89,7 @@ print(response.text)
 
 ### Response Example
 
-Upon a successful request, the API will return the detailed information of the image task. For example:
+Upon successful request, the API will return the detailed information of the image task. For example:
 
 ```json
 {
@@ -153,7 +153,7 @@ Some code examples are as follows:
 
 ### Response Example
 
-Upon a successful request, the API will return the specific details of all batch image tasks. For example:
+Upon successful request, the API will return the specific details of all batch image tasks. For example:
 ```json
 {
   "items": [
@@ -222,6 +222,11 @@ Upon a successful request, the API will return the specific details of all batch
 }
 ```
 
+The return result contains multiple fields, among which `items` includes the specific details of batch image tasks, and the specific information of each image task is the same as the format of the single task return result mentioned above. The field information is as follows.
+
+- `items`, all specific detail information of batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
+- `count`, the number of image tasks in this batch query.
+
 #### CURL
 
 ```bash
@@ -282,4 +287,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the FLux Tasks API to query the specific details of single or batch image tasks. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the FLux Tasks API to query all specific detail information of single or batch image tasks. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
