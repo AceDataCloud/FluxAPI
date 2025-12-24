@@ -11,13 +11,13 @@ This article will introduce the integration instructions for the Flux Images Gen
 
 ### Application Process
 
-To use the API, you need to first apply for the corresponding service on the [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) page. After entering the page, click the "Acquire" button, as shown in the image:
+To use the API, you need to first apply for the corresponding service on the [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) page. After entering the page, click the "Acquire" button, as shown in the image below:
 
 ![](https://cdn.acedata.cloud/q6ytrc.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota provided, allowing you to use the API for free.
+Upon the first application, there will be a free quota provided, allowing you to use the API for free.
 
 ### Basic Usage
 
@@ -27,7 +27,7 @@ First, understand the basic usage method, which involves inputting the prompt `p
 
 Here we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
+- `accept`: the format of the response result you want to receive, here filled in as `application/json`, which means JSON format.
 - `authorization`: the key to call the API, which can be directly selected after application.
 
 Additionally, we set the Request Body, including:
@@ -36,14 +36,14 @@ Additionally, we set the Request Body, including:
 - `size`: the size of the generated image result.
 - `count`: the number of images to generate, with a default value of 1; this parameter is only valid for image generation tasks and is invalid for editing tasks.
 - `prompt`: the prompt.
-- `model`: the generation model, defaulting to `flux-dev`.
+- `model`: the generation model, default is `flux-dev`.
 - `callback_url`: the URL to receive the callback result.
 
-After selection, you can see that the corresponding code is also generated on the right side, as shown in the image:
+After selection, you can see that the corresponding code is also generated on the right side, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the image above, and we get the following result:
+Click the "Try" button to test, as shown in the above image, and we get the following result:
 
 ```json
 {
@@ -74,7 +74,7 @@ The returned result contains multiple fields, described as follows:
   - `image_url`: the link to the image generation task.
   - `prompt`: the prompt.
 
-We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link address in the `data` result.
+We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link address in `data`.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -147,7 +147,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-As you can see, the generated effect is the result of editing the original image, similar to the previous text.
+As we can see, the generated effect is the result of editing the original image, similar to the previous text.
 
 ### Asynchronous Callback
 
@@ -157,7 +157,7 @@ The overall process is: when the client initiates a request, an additional `call
 
 Let’s understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, where you can open the site to get a Webhook URL, as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, where you can open the site to get a Webhook URL, as shown in the image below:
 
 ![](https://cdn.acedata.cloud/cjjfly.png)
 
