@@ -10,7 +10,7 @@ To use the API, you need to first apply for the corresponding service on the [Fl
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon the first application, there will be a free quota provided, allowing you to use the API for free.
+Upon your first application, there will be a free quota provided, allowing you to use the API for free.
 
 ## Basic Usage
 
@@ -20,7 +20,7 @@ First, understand the basic usage method, which involves inputting the prompt `p
 
 Here we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response result you want to receive, here filled in as `application/json`, which means JSON format.
+- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
 - `authorization`: the key to call the API, which can be directly selected after application.
 
 Additionally, we set the Request Body, including:
@@ -67,7 +67,7 @@ The returned result contains multiple fields, described as follows:
   - `image_url`: the link to the image generation task.
   - `prompt`: the prompt.
 
-We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link address in `data`.
+We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link address in the `data` result.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -140,7 +140,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-As we can see, the generated effect is the result of editing the original image, similar to the previous text.
+As you can see, the generated effect is the result of editing the original image, similar to the previous text.
 
 ## Asynchronous Callback
 
@@ -159,7 +159,7 @@ Next, we can set the field `callback_url` to the above Webhook URL, while fillin
 
 <p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" class="m-auto"></p>
 
-Clicking run, you will find that a result is immediately obtained, as follows:
+Clicking run, you will find that a result is obtained immediately, as follows:
 
 ```
 {
