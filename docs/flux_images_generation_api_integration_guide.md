@@ -62,7 +62,7 @@ The returned result contains multiple fields, described as follows:
 
 - `success`: the status of the image generation task at this time.
 - `task_id`: the ID of the image generation task at this time.
-- `trace_id`: the tracking ID of the image generation at this time.
+- `trace_id`: the trace ID of the image generation at this time.
 - `data`: the result list of the image generation task at this time.
   - `image_url`: the link to the image generation task.
   - `prompt`: the prompt.
@@ -140,7 +140,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-As you can see, the generated effect is the result of editing the original image, similar to the previous text.
+As we can see, the generated effect is the result of editing the original image, similar to the previous text.
 
 ## Asynchronous Callback
 
@@ -150,7 +150,7 @@ The overall process is: when the client initiates a request, an additional `call
 
 Let’s understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, where you can open the site to get a Webhook URL, as shown in the image below:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For convenience in demonstration, we use a public Webhook sample site https://webhook.site/, where you can open the site to get a Webhook URL, as shown in the image below:
 
 ![](https://cdn.acedata.cloud/cjjfly.png)
 
@@ -159,7 +159,7 @@ Next, we can set the field `callback_url` to the above Webhook URL, while fillin
 
 <p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" class="m-auto"></p>
 
-Clicking run, you will find that a result is obtained immediately, as follows:
+Clicking run, you will find that a result is immediately obtained, as follows:
 
 ```
 {
