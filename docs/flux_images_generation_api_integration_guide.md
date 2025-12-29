@@ -10,7 +10,7 @@ To use the API, you need to first apply for the corresponding service on the [Fl
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota provided, allowing you to use the API for free.
+Upon your first application, there will be a free quota granted, allowing you to use the API for free.
 
 ## Basic Usage
 
@@ -20,8 +20,8 @@ First, understand the basic usage method, which involves inputting the prompt `p
 
 Here we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response result you want to receive, here filled in as `application/json`, which means JSON format.
-- `authorization`: the key to call the API, which can be directly selected after application.
+- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
+- `authorization`: the key to call the API, which can be selected directly after application.
 
 Additionally, we set the Request Body, including:
 
@@ -29,7 +29,7 @@ Additionally, we set the Request Body, including:
 - `size`: the size of the generated image result.
 - `count`: the number of images to generate, with a default value of 1; this parameter is only valid for image generation tasks and is invalid for editing tasks.
 - `prompt`: the prompt.
-- `model`: the generation model, defaulting to `flux-dev`.
+- `model`: the generation model, default is `flux-dev`.
 - `callback_url`: the URL to receive the callback result.
 
 After selection, you can see that the corresponding code is also generated on the right side, as shown in the image below:
@@ -67,7 +67,7 @@ The returned result contains multiple fields, described as follows:
   - `image_url`: the link to the image generation task.
   - `prompt`: the prompt.
 
-We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link addresses in the `data` result.
+We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link address in the `data` result.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -86,16 +86,16 @@ curl -X POST 'https://api.acedata.cloud/flux/images' \
 
 ## Editing Image Tasks
 
-If you want to edit a specific image, the parameter `image_url` must first be passed with the link to the image that needs editing. At this time, `action` only supports `edit`, and you can specify the following content:
+If you want to edit a specific image, the parameter `image_url` must first be passed with the link to the image that needs to be edited. At this time, `action` only supports `edit`, and you can specify the following content:
 
 - model: the model used for this image editing task, which currently supports `flux-kontext-max` and `flux-kontext-pro`.
-- image_url: the uploaded image that needs editing.
+- image_url: the uploaded image that needs to be edited.
 
 An example of the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/jn9da5.png" width="500" class="m-auto"></p>
 
-After filling it out, the code is automatically generated as follows:
+After filling in, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/6cwxb8.png" width="500" class="m-auto"></p>
 
@@ -140,7 +140,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-As we can see, the generated effect is the result of editing the original image, similar to the previous text.
+As you can see, the generated effect is the result of editing the original image, similar to the previous text.
 
 ## Asynchronous Callback
 
@@ -159,7 +159,7 @@ Next, we can set the field `callback_url` to the above Webhook URL, while fillin
 
 <p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" class="m-auto"></p>
 
-Clicking run, you will find that a result is immediately obtained, as follows:
+Clicking run, you will find that a result is obtained immediately, as follows:
 
 ```
 {
@@ -191,7 +191,7 @@ The content is as follows:
 }
 ```
 
-It can be seen that the result contains a `task_id` field, and the other fields are similar to the above text, which allows for task association through this field.
+It can be seen that there is a `task_id` field in the result, and the other fields are similar to the above text. This field can be used to associate tasks.
 
 ## Error Handling
 
@@ -218,4 +218,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Flux Images Generation API to generate images by inputting prompts. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Flux Images Generation API to generate images by inputting prompts. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
