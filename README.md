@@ -17,7 +17,7 @@ To use the API, you need to first apply for the corresponding service on the [Fl
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota granted, allowing you to use the API for free.
+Upon your first application, there will be a free quota provided, allowing you to use the API for free.
 
 ### Basic Usage
 
@@ -36,7 +36,7 @@ Additionally, we set the Request Body, including:
 - `size`: the size of the generated image result.
 - `count`: the number of images to generate, with a default value of 1; this parameter is only valid for image generation tasks and is invalid for editing tasks.
 - `prompt`: the prompt.
-- `model`: the generation model, default is `flux-dev`.
+- `model`: the generation model, defaulting to `flux-dev`.
 - `callback_url`: the URL to receive the callback result.
 
 After selection, you can see that the corresponding code is also generated on the right side, as shown in the image below:
@@ -69,12 +69,12 @@ The returned result contains multiple fields, described as follows:
 
 - `success`: the status of the image generation task at this time.
 - `task_id`: the ID of the image generation task at this time.
-- `trace_id`: the tracking ID of the image generation at this time.
+- `trace_id`: the trace ID of the image generation at this time.
 - `data`: the result list of the image generation task at this time.
   - `image_url`: the link to the image generation task.
   - `prompt`: the prompt.
 
-We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link address in the `data` result.
+We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link address in `data`.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -151,7 +151,7 @@ As you can see, the generated effect is the result of editing the original image
 
 ### Asynchronous Callback
 
-Since the time taken by the Flux Images Generation API is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+Since the time taken by the Flux Images Generation API to generate images is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
 The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the result of the generated image will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
@@ -161,12 +161,12 @@ First, the Webhook callback is a service that can receive HTTP requests, and dev
 
 ![](https://cdn.acedata.cloud/cjjfly.png)
 
-Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
+Copy this URL, and you can use it as a Webhook. The sample here is `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
 Next, we can set the field `callback_url` to the above Webhook URL, while filling in the corresponding parameters, as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" class="m-auto"></p>
 
-Clicking run, you will find that a result is obtained immediately, as follows:
+Clicking run, you will find that an immediate result is obtained, as follows:
 
 ```
 {
@@ -198,7 +198,7 @@ The content is as follows:
 }
 ```
 
-It can be seen that there is a `task_id` field in the result, and the other fields are similar to the above text. This field can be used to associate tasks.
+It can be seen that there is a `task_id` field in the result, and the other fields are similar to the above text, which allows for task association through this field.
 
 ### Error Handling
 
