@@ -4,7 +4,7 @@ This article will introduce the integration instructions for the Flux Images Gen
 
 ## Application Process
 
-To use the API, you need to first apply for the corresponding service on the [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) page. After entering the page, click the "Acquire" button, as shown in the image below:
+To use the API, you need to first apply for the corresponding service on the [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) page. After entering the page, click the "Acquire" button, as shown in the image:
 
 ![](https://cdn.acedata.cloud/q6ytrc.png)
 
@@ -21,7 +21,7 @@ First, understand the basic usage method, which involves inputting the prompt `p
 Here we can see that we have set the Request Headers, including:
 
 - `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
-- `authorization`: the key to call the API, which can be selected directly after application.
+- `authorization`: the key to call the API, which can be directly selected after application.
 
 Additionally, we set the Request Body, including:
 
@@ -32,11 +32,11 @@ Additionally, we set the Request Body, including:
 - `model`: the generation model, defaulting to `flux-dev`.
 - `callback_url`: the URL to receive the callback result.
 
-After selection, you can see that the corresponding code is also generated on the right side, as shown in the image below:
+After selection, you can see that the corresponding code is also generated on the right side, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the above image, and we get the following result:
+Click the "Try" button to test, as shown in the image above, and we get the following result:
 
 ```json
 {
@@ -67,7 +67,7 @@ The returned result contains multiple fields, described as follows:
   - `image_url`: the link to the image generation task.
   - `prompt`: the prompt.
 
-We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link address in `data`.
+We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link addresses in the `data` result.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -86,10 +86,10 @@ curl -X POST 'https://api.acedata.cloud/flux/images' \
 
 ## Editing Image Tasks
 
-If you want to edit a specific image, the parameter `image_url` must first be passed with the link to the image that needs to be edited. At this time, `action` only supports `edit`, and you can specify the following content:
+If you want to edit a specific image, the parameter `image_url` must first be passed with the link to the image that needs editing. At this time, `action` only supports `edit`, and you can specify the following content:
 
 - model: the model used for this image editing task, which currently supports `flux-kontext-max` and `flux-kontext-pro`.
-- image_url: the uploaded image that needs to be edited.
+- image_url: the uploaded image that needs editing.
 
 An example of the input is as follows:
 
@@ -144,22 +144,22 @@ As you can see, the generated effect is the result of editing the original image
 
 ## Asynchronous Callback
 
-Since the time taken by the Flux Images Generation API to generate images is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+Since the time taken by the Flux Images Generation API is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
 The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the result of the generated image will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
 Let’s understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, where you can open the site to get a Webhook URL, as shown in the image below:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, where you can open the site to get a Webhook URL, as shown in the image:
 
 ![](https://cdn.acedata.cloud/cjjfly.png)
 
-Copy this URL, and you can use it as a Webhook. The sample here is `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
+Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
 Next, we can set the field `callback_url` to the above Webhook URL, while filling in the corresponding parameters, as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" class="m-auto"></p>
 
-Clicking run, you will find that an immediate result is obtained, as follows:
+Clicking run, you will find that a result is immediately obtained, as follows:
 
 ```
 {
@@ -191,7 +191,7 @@ The content is as follows:
 }
 ```
 
-It can be seen that there is a `task_id` field in the result, and the other fields are similar to the above text, which allows for task association through this field.
+It can be seen that the result contains a `task_id` field, and the other fields are similar to the above text, which allows for task association through this field.
 
 ## Error Handling
 
