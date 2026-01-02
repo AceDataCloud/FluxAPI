@@ -29,14 +29,14 @@ Additionally, we set the Request Body, including:
 - `size`: the size of the generated image result.
 - `count`: the number of images to generate, with a default value of 1; this parameter is only valid for image generation tasks and is invalid for editing tasks.
 - `prompt`: the prompt.
-- `model`: the generation model, default is `flux-dev`.
+- `model`: the generation model, defaulting to `flux-dev`.
 - `callback_url`: the URL to receive the callback result.
 
 After selection, you can see that the corresponding code is also generated on the right side, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the above image, and we get the following result:
+Click the "Try" button to test, as shown in the image above, and we get the following result:
 
 ```json
 {
@@ -86,10 +86,10 @@ curl -X POST 'https://api.acedata.cloud/flux/images' \
 
 ## Editing Image Tasks
 
-If you want to edit a specific image, the parameter `image_url` must first be passed with the link to the image that needs to be edited. At this time, `action` only supports `edit`, and you can specify the following content:
+If you want to edit a specific image, the parameter `image_url` must first be passed with the link to the image that needs editing. At this time, `action` only supports `edit`, and you can specify the following content:
 
 - model: the model used for this image editing task, which currently supports `flux-kontext-max` and `flux-kontext-pro`.
-- image_url: the uploaded image that needs to be edited.
+- image_url: the uploaded image that needs editing.
 
 An example of the input is as follows:
 
@@ -140,21 +140,21 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-As we can see, the generated effect is the result of editing the original image, similar to the previous text.
+You can see that the generated effect is the result of editing the original image, similar to the previous text.
 
 ## Asynchronous Callback
 
-Since the time taken by the Flux Images Generation API to generate images is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+Since the time taken by the Flux Images Generation API is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
 The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the result of the generated image will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
 Let’s understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/. Open this site to get a Webhook URL, as shown in the image below:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, where you can open the site to get a Webhook URL, as shown in the image below:
 
 ![](https://cdn.acedata.cloud/cjjfly.png)
 
-Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
+Copy this URL, and you can use it as a Webhook. The sample here is `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
 Next, we can set the field `callback_url` to the above Webhook URL, while filling in the corresponding parameters, as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" class="m-auto"></p>
