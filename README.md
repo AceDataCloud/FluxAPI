@@ -102,7 +102,7 @@ An example of the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/jn9da5.png" width="500" class="m-auto"></p>
 
-After filling in, the code is automatically generated as follows:
+After filling it out, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/6cwxb8.png" width="500" class="m-auto"></p>
 
@@ -147,7 +147,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-You can see that the generated effect is the result of editing the original image, similar to the previous text.
+As you can see, the generated effect is the result of editing the original image, similar to the previous text.
 
 ### Asynchronous Callback
 
@@ -157,11 +157,11 @@ The overall process is: when the client initiates a request, an additional `call
 
 Let’s understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, where you can open the site to get a Webhook URL, as shown in the image below:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/. Open this site to get a Webhook URL, as shown in the image below:
 
 ![](https://cdn.acedata.cloud/cjjfly.png)
 
-Copy this URL, and you can use it as a Webhook. The sample here is `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
+Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
 Next, we can set the field `callback_url` to the above Webhook URL, while filling in the corresponding parameters, as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" class="m-auto"></p>
