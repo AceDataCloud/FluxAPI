@@ -14,13 +14,13 @@ Finally, go to the Flux Tasks API page [Flux Tasks API](https://platform.acedata
 
 ![Application Page](https://cdn.acedata.cloud/rci31i.png)
 
-If you have not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
+If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
 There is a free quota available for first-time applicants, allowing you to use this API for free.
 
 ## Request Example
 
-The Flux Tasks API can be used to query the results of the Flux Images Generation API. For information on how to use the Flux Images Generation API, please refer to the document [Flux Images Generation API](https://platform.acedata.cloud/documents/flux-images-integration).
+The Flux Tasks API can be used to query the results of the Flux Images Generation API. For information on how to use the Flux Images Generation API, please refer to the documentation [Flux Images Generation API](https://platform.acedata.cloud/documents/flux-images-integration).
 
 We will take a task ID returned by the Flux Images Generation API as an example to demonstrate how to use this API. Suppose we have a task ID: 2db0168c-2373-4367-8d9a-9dc778802e8a, and we will demonstrate how to pass in a task ID.
 
@@ -89,7 +89,7 @@ print(response.text)
 
 ### Response Example
 
-Upon successful request, the API will return the details of the image task. For example:
+Upon successful request, the API will return the details of the image task here. For example:
 
 ```json
 {
@@ -153,7 +153,7 @@ Some code examples are as follows:
 
 ### Response Example
 
-Upon successful request, the API will return the specific details of all batch image tasks. For example:
+Upon successful request, the API will return the specific details of all batch image tasks this time. For example:
 ```json
 {
   "items": [
@@ -222,6 +222,11 @@ Upon successful request, the API will return the specific details of all batch i
 }
 ```
 
+The returned result contains multiple fields, among which `items` includes the specific details of batch image tasks, and each image task's specific information is the same as the fields mentioned above.
+
+- `items`, all specific details of batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
+- `count`, the number of image tasks in this batch query.
+
 #### CURL
 
 ```bash
@@ -282,4 +287,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the FLux Tasks API to query the specific details of single or batch image tasks. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the FLux Tasks API to query all specific details of single or batch image tasks. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
