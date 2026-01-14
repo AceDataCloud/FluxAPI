@@ -10,7 +10,7 @@ To use the API, you need to first apply for the corresponding service on the [Fl
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota provided, allowing you to use the API for free.
+There is a free quota available for first-time applicants, allowing you to use the API for free.
 
 ## Basic Usage
 
@@ -20,7 +20,7 @@ First, understand the basic usage method, which involves inputting the prompt `p
 
 Here we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
+- `accept`: the format of the response result you want to receive, here filled in as `application/json`, which means JSON format.
 - `authorization`: the key to call the API, which can be directly selected after application.
 
 Additionally, we set the Request Body, including:
@@ -29,7 +29,7 @@ Additionally, we set the Request Body, including:
 - `size`: the size of the generated image result.
 - `count`: the number of images to generate, with a default value of 1; this parameter is only valid for image generation tasks and is invalid for editing tasks.
 - `prompt`: the prompt.
-- `model`: the generation model, defaulting to `flux-dev`.
+- `model`: the generation model, default is `flux-dev`.
 - `callback_url`: the URL to receive the callback result.
 
 After selection, you can see that the corresponding code is also generated on the right side, as shown in the image below:
@@ -67,7 +67,7 @@ The returned result contains multiple fields, described as follows:
   - `image_url`: the link to the image generation task.
   - `prompt`: the prompt.
 
-We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link address in the `data` result.
+We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link addresses in the `data` result.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -144,13 +144,13 @@ As you can see, the generated effect is the result of editing the original image
 
 ## Asynchronous Callback
 
-Since the time taken by the Flux Images Generation API to generate images is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+Since the time taken by the Flux Images Generation API is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
 The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the result of the generated image will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
 Let’s understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For convenience in demonstration, we use a public Webhook sample site https://webhook.site/, where you can open the site to get a Webhook URL, as shown in the image below:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For convenience in demonstration, we use a public Webhook sample site https://webhook.site/. Open this site to get a Webhook URL, as shown in the image below:
 
 ![](https://cdn.acedata.cloud/cjjfly.png)
 
