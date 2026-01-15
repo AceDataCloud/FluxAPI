@@ -6,11 +6,11 @@ This document will provide detailed integration instructions for the Flux Tasks 
 
 ## Application Process
 
-To use the Flux Tasks API, you first need to apply for the corresponding service on the application page [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394), and then copy the task ID from the Flux Images Generation API, as shown in the figure below:
+To use the Flux Tasks API, you first need to apply for the corresponding service on the application page [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394), and then copy the task ID from the Flux Images Generation API, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" class="m-auto"></p>
 
-Finally, go to the Flux Tasks API page [Flux Tasks API](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) to apply for the corresponding service. After entering the page, click the "Acquire" button, as shown in the figure below.
+Finally, go to the Flux Tasks API page [Flux Tasks API](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) to apply for the corresponding service. After entering the page, click the "Acquire" button, as shown in the image below.
 
 ![Application Page](https://cdn.acedata.cloud/rci31i.png)
 
@@ -20,9 +20,9 @@ There is a free quota available for first-time applicants, allowing you to use t
 
 ## Request Example
 
-The Flux Tasks API can be used to query the results of the Flux Images Generation API. For information on how to use the Flux Images Generation API, please refer to the document [Flux Images Generation API](https://platform.acedata.cloud/documents/flux-images-integration).
+The Flux Tasks API can be used to query the results of the Flux Images Generation API. For information on how to use the Flux Images Generation API, please refer to the documentation [Flux Images Generation API](https://platform.acedata.cloud/documents/flux-images-integration).
 
-We will take a task ID returned by the Flux Images Generation API as an example to demonstrate how to use this API. Suppose we have a task ID: 2db0168c-2373-4367-8d9a-9dc778802e8a, and we will demonstrate how to pass in a task ID.
+We will use a task ID returned by the Flux Images Generation API service as an example to demonstrate how to use this API. Suppose we have a task ID: 2db0168c-2373-4367-8d9a-9dc778802e8a, and we will demonstrate how to pass in a task ID.
 
 ### Task Example Image
 
@@ -40,13 +40,13 @@ We will take a task ID returned by the Flux Images Generation API as an example 
 - `id`: The uploaded task ID.
 - `action`: The operation method for the task.
 
-Set as shown in the figure below:
+Set as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/fiasxz.png" width="500" class="m-auto"></p>
 
 ### Code Example
 
-You can see that various language codes have been automatically generated on the right side of the page, as shown in the figure below:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/j6gn86.png" width="500" class="m-auto"></p>
 
@@ -89,7 +89,7 @@ print(response.text)
 
 ### Response Example
 
-Upon successful request, the API will return the details of the image task here. For example:
+Upon successful request, the API will return the detailed information of the image task here. For example:
 
 ```json
 {
@@ -127,8 +127,8 @@ Upon successful request, the API will return the details of the image task here.
 The returned result contains multiple fields, with the request field being the request body when the task was initiated, and the response field being the response body returned after the task is completed. The field descriptions are as follows.
 
 - `id`: The ID of the image task generated, used to uniquely identify this image generation task.
-- `request`: The request information in the image task.
-- `response`: The return information in the image task.
+- `request`: Query information about the request in the image task.
+- `response`: Query information about the response in the image task.
 
 ## Batch Query Operation
 
@@ -139,13 +139,13 @@ This is for querying the details of multiple task IDs, and unlike the above, the
 - `ids`: An array of uploaded task IDs.
 - `action`: The operation method for the task.
 
-Set as shown in the figure below:
+Set as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/k3i9ns.png" width="500" class="m-auto"></p>
 
 ### Code Example
 
-You can see that various language codes have been automatically generated on the right side of the page, as shown in the figure below:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/pt5fww.png" width="500" class="m-auto"></p>
 
