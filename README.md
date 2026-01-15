@@ -17,7 +17,7 @@ To use the API, you need to first apply for the corresponding service on the [Fl
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-There is a free quota available for first-time applicants, allowing you to use the API for free.
+Upon your first application, there will be a free quota available for you to use the API for free.
 
 ### Basic Usage
 
@@ -32,12 +32,27 @@ Here we can see that we have set the Request Headers, including:
 
 Additionally, we set the Request Body, including:
 
-- `action`: the action for this image generation task.
+- `action`: the action of this image generation task.
 - `size`: the size of the generated image result.
 - `count`: the number of images to generate, with a default value of 1; this parameter is only valid for image generation tasks and is invalid for editing tasks.
 - `prompt`: the prompt.
 - `model`: the generation model, default is `flux-dev`.
 - `callback_url`: the URL to receive the callback result.
+
+The parameter `size` has some special restrictions, mainly divided into two types: `width x height` aspect ratio and `x:y` image ratio, as detailed below:
+
+| Model                 | Range                                 |
+| ------------------ | ---------------------------------- |
+| flux-2-flex        | Supports aspect ratio x >= 64 must be a multiple of 32          |
+| flux-2-pro         | Supports aspect ratio x >= 64 must be a multiple of 32          |
+| flux-2-max         | Supports aspect ratio x >= 64 must be a multiple of 32          |
+| flux-pro-1.1       | Supports aspect ratio 256 <= x <= 1440 must be a multiple of 32 |
+| flux-dev           | Supports aspect ratio 256 <= x <= 1440 must be a multiple of 32 |
+| flux-pro-1.1-ultra | Does not support aspect ratio supports image ratio                     |
+| flux-kontext-pro   | Does not support aspect ratio supports image ratio                     |
+| flux-kontext-max   | Does not support aspect ratio supports image ratio                     |
+
+Reference image ratios: "1:1", "16:9", "21:9", "3:2", "2:3", "4:5", "5:4", "3:4", "4:3", "9:16", "9:21",
 
 After selection, you can see that the corresponding code is also generated on the right side, as shown in the image below:
 
@@ -67,14 +82,14 @@ Click the "Try" button to test, as shown in the above image, and we get the foll
 
 The returned result contains multiple fields, described as follows:
 
-- `success`: the status of the image generation task at this time.
-- `task_id`: the ID of the image generation task at this time.
-- `trace_id`: the tracking ID of the image generation at this time.
-- `data`: the result list of the image generation task at this time.
-  - `image_url`: the link to the image generation task.
-  - `prompt`: the prompt.
+- `success`, the status of the image generation task at this time.
+- `task_id`, the ID of the image generation task at this time.
+- `trace_id`, the tracking ID of the image generation at this time.
+- `data`, the result list of the image generation task at this time.
+  - `image_url`, the link to the image generation task at this time.
+  - `prompt`, the prompt.
 
-We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link addresses in the `data` result.
+We can see that we have obtained satisfactory image information, and we only need to obtain the generated Flux image based on the image link address in the `data` result.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -91,12 +106,12 @@ curl -X POST 'https://api.acedata.cloud/flux/images' \
 }'
 ```
 
-### Editing Image Tasks
+### Edit Image Task
 
 If you want to edit a specific image, the parameter `image_url` must first be passed with the link to the image that needs to be edited. At this time, `action` only supports `edit`, and you can specify the following content:
 
-- model: the model used for this image editing task, which currently supports `flux-kontext-max` and `flux-kontext-pro`.
-- image_url: the uploaded image that needs to be edited.
+- model: the model used for this image editing task, which currently supports `flux-kontext-max`, `flux-kontext-pro`.
+- image_url: the link to the image that needs to be edited.
 
 An example of the input is as follows:
 
@@ -150,23 +165,23 @@ Clicking run, you can find that you will immediately get a result, as follows:
 As you can see, the generated effect is the result of editing the original image, similar to the previous text.
 
 ### Asynchronous Callback
+Due to the relatively long generation time of the Flux Images Generation API, which takes about 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
-Since the time taken by the Flux Images Generation API is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+The overall process is as follows: when the client initiates a request, an additional `callback_url` field is specified. After the client makes the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the result of the generated image will be sent to the `callback_url` specified by the client in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
-The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the result of the generated image will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
+Let's understand how to operate specifically through an example.
 
-Let’s understand how to operate specifically through an example.
-
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For convenience in demonstration, we use a public Webhook sample site https://webhook.site/. Open this site to get a Webhook URL, as shown in the image below:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL as shown in the image:
 
 ![](https://cdn.acedata.cloud/cjjfly.png)
 
 Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
-Next, we can set the field `callback_url` to the above Webhook URL, while filling in the corresponding parameters, as shown in the figure:
+
+Next, we can set the `callback_url` field to the above Webhook URL and fill in the corresponding parameters, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" class="m-auto"></p>
 
-Clicking run, you will find that a result is immediately obtained, as follows:
+Clicking run, you will immediately receive a result as follows:
 
 ```
 {
@@ -174,7 +189,7 @@ Clicking run, you will find that a result is immediately obtained, as follows:
 }
 ```
 
-After a moment, we can observe the generated image result at `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`, as shown in the figure:
+After a moment, we can observe the result of the generated image at `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`, as shown in the image:
 
 ![](https://cdn.acedata.cloud/v23lot.png)
 
@@ -198,7 +213,7 @@ The content is as follows:
 }
 ```
 
-It can be seen that the result contains a `task_id` field, and the other fields are similar to the above text, which allows for task association through this field.
+It can be seen that the result contains a `task_id` field, and the other fields are similar to those mentioned above, allowing the task to be associated through this field.
 
 ### Error Handling
 
