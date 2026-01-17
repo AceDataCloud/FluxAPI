@@ -10,7 +10,7 @@ To use the API, you need to first apply for the corresponding service on the [Fl
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota available for you to use the API for free.
+Upon your first application, there will be a free quota provided, allowing you to use the API for free.
 
 ## Basic Usage
 
@@ -20,12 +20,12 @@ First, understand the basic usage method, which involves inputting the prompt `p
 
 Here we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response result you want to receive, here filled in as `application/json`, which means JSON format.
+- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
 - `authorization`: the key to call the API, which can be directly selected after application.
 
 Additionally, we set the Request Body, including:
 
-- `action`: the action of this image generation task.
+- `action`: the action for this image generation task.
 - `size`: the size of the generated image result.
 - `count`: the number of images to generate, with a default value of 1; this parameter is only valid for image generation tasks and is invalid for editing tasks.
 - `prompt`: the prompt.
@@ -51,7 +51,7 @@ After selection, you can see that the corresponding code is also generated on th
 
 <p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the above image, and we get the following result:
+Click the "Try" button to test, as shown in the above image, and we obtained the following result:
 
 ```json
 {
@@ -75,14 +75,14 @@ Click the "Try" button to test, as shown in the above image, and we get the foll
 
 The returned result contains multiple fields, described as follows:
 
-- `success`, the status of the image generation task at this time.
-- `task_id`, the ID of the image generation task at this time.
-- `trace_id`, the tracking ID of the image generation at this time.
-- `data`, the result list of the image generation task at this time.
-  - `image_url`, the link to the image generation task at this time.
-  - `prompt`, the prompt.
+- `success`: the status of the video generation task at this time.
+- `task_id`: the ID of the video generation task at this time.
+- `trace_id`: the tracking ID of the video generation at this time.
+- `data`: the result list of the image generation task at this time.
+  - `image_url`: the link to the image generation task at this time.
+  - `prompt`: the prompt.
 
-We can see that we have obtained satisfactory image information, and we only need to obtain the generated Flux image based on the image link address in the `data` result.
+We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link addresses in the `data` result.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -99,12 +99,12 @@ curl -X POST 'https://api.acedata.cloud/flux/images' \
 }'
 ```
 
-## Edit Image Task
+## Editing Image Tasks
 
 If you want to edit a specific image, the parameter `image_url` must first be passed with the link to the image that needs to be edited. At this time, `action` only supports `edit`, and you can specify the following content:
 
 - model: the model used for this image editing task, which currently supports `flux-kontext-max`, `flux-kontext-pro`.
-- image_url: the link to the image that needs to be edited.
+- image_url: the uploaded image that needs to be edited.
 
 An example of the input is as follows:
 
@@ -206,7 +206,7 @@ The content is as follows:
 }
 ```
 
-It can be seen that the result contains a `task_id` field, and the other fields are similar to those mentioned above, allowing the task to be associated through this field.
+You can see that the result contains a `task_id` field, and the other fields are similar to those mentioned above, allowing the task to be associated through this field.
 
 ## Error Handling
 
