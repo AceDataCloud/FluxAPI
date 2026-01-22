@@ -89,7 +89,7 @@ print(response.text)
 
 ### Response Example
 
-Upon successful request, the API will return the detailed information of the image task here. For example:
+Upon a successful request, the API will return the details of the image task here. For example:
 
 ```json
 {
@@ -127,8 +127,8 @@ Upon successful request, the API will return the detailed information of the ima
 The returned result contains multiple fields, with the request field being the request body when the task was initiated, and the response field being the response body returned after the task is completed. The field descriptions are as follows.
 
 - `id`: The ID of the image task generated, used to uniquely identify this image generation task.
-- `request`: Query information about the request in the image task.
-- `response`: Query information about the response in the image task.
+- `request`: The request information in the image task.
+- `response`: The return information in the image task.
 
 ## Batch Query Operation
 
@@ -153,7 +153,7 @@ Some code examples are as follows:
 
 ### Response Example
 
-Upon successful request, the API will return the specific details of all batch image tasks this time. For example:
+Upon a successful request, the API will return the specific details of all batch image tasks this time. For example:
 ```json
 {
   "items": [
