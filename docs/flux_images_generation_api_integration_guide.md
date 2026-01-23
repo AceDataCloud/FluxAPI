@@ -79,10 +79,10 @@ The returned result contains multiple fields, described as follows:
 - `task_id`, the ID of the image generation task at this time.
 - `trace_id`, the tracking ID of the image generation at this time.
 - `data`, the result list of the image generation task at this time.
-  - `image_url`, the link to the image generation task.
+  - `image_url`, the link to the image generation task at this time.
   - `prompt`, the prompt.
 
-We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link addresses in the `data` result.
+We can see that we have obtained satisfactory image information, and we only need to obtain the generated Flux image based on the image link address in the `data` result.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -103,7 +103,7 @@ curl -X POST 'https://api.acedata.cloud/flux/images' \
 
 If you want to edit a specific image, the parameter `image_url` must first be passed with the link to the image that needs to be edited, at this time `action` only supports `edit`, and you can specify the following content:
 
-- model: the model used for this image editing task, currently supports `flux-kontext-max`, `flux-kontext-pro`.
+- model: the model used for this image editing task, which currently supports `flux-kontext-max`, `flux-kontext-pro`.
 - image_url: the link to the image that needs to be uploaded for editing.
 
 An example of the input is as follows:
@@ -160,9 +160,9 @@ As we can see, the generated effect is the result of editing the original image,
 ## Asynchronous Callback
 Due to the relatively long generation time of the Flux Images Generation API, which takes about 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
-The overall process is as follows: when the client initiates a request, an additional `callback_url` field is specified. After the client makes the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the result of the generated image will be sent to the `callback_url` specified by the client in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
+The overall process is as follows: when the client initiates a request, an additional `callback_url` field is specified. After the client makes the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the result of the generated image will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
-Let's understand how to operate specifically through an example.
+Let’s understand how to operate specifically through an example.
 
 First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL as shown in the image:
 
@@ -206,7 +206,7 @@ The content is as follows:
 }
 ```
 
-You can see that the result contains a `task_id` field, and the other fields are similar to those mentioned above, allowing the task to be associated through this field.
+It can be seen that the result contains a `task_id` field, and the other fields are similar to those mentioned above, allowing the task to be associated through this field.
 
 ## Error Handling
 
