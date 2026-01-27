@@ -6,11 +6,11 @@ This document will provide detailed integration instructions for the Flux Tasks 
 
 ## Application Process
 
-To use the Flux Tasks API, you first need to apply for the corresponding service on the application page [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394), and then copy the task ID from the Flux Images Generation API, as shown in the image below:
+To use the Flux Tasks API, you first need to apply for the corresponding service on the application page [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394), and then copy the task ID from the Flux Images Generation API, as shown in the figure below:
 
 <p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" class="m-auto"></p>
 
-Finally, go to the Flux Tasks API page [Flux Tasks API](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) to apply for the corresponding service. After entering the page, click the "Acquire" button, as shown in the image below.
+Finally, go to the Flux Tasks API page [Flux Tasks API](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) to apply for the corresponding service. After entering the page, click the "Acquire" button, as shown in the figure below.
 
 ![Application Page](https://cdn.acedata.cloud/rci31i.png)
 
@@ -40,13 +40,13 @@ We will take a task ID returned by the Flux Images Generation API as an example 
 - `id`: The uploaded task ID.
 - `action`: The operation method for the task.
 
-Set as shown in the image below:
+Set as shown in the figure below:
 
 <p><img src="https://cdn.acedata.cloud/fiasxz.png" width="500" class="m-auto"></p>
 
 ### Code Example
 
-You can see that various language codes have been automatically generated on the right side of the page, as shown in the image below:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the figure below:
 
 <p><img src="https://cdn.acedata.cloud/j6gn86.png" width="500" class="m-auto"></p>
 
@@ -139,13 +139,13 @@ This is for querying the details of multiple task IDs, and unlike the above, the
 - `ids`: An array of uploaded task IDs.
 - `action`: The operation method for the task.
 
-Set as shown in the image below:
+Set as shown in the figure below:
 
 <p><img src="https://cdn.acedata.cloud/k3i9ns.png" width="500" class="m-auto"></p>
 
 ### Code Example
 
-You can see that various language codes have been automatically generated on the right side of the page, as shown in the image below:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the figure below:
 
 <p><img src="https://cdn.acedata.cloud/pt5fww.png" width="500" class="m-auto"></p>
 
@@ -287,4 +287,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the FLux Tasks API to query the specific detail information of single or batch image tasks. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the FLux Tasks API to query all specific detail information of single or batch image tasks. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
