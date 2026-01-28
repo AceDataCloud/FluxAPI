@@ -23,7 +23,7 @@ Here we can see that we have set the Request Headers, including:
 - `accept`: the format of the response result you want to receive, which is filled in as `application/json`, i.e., JSON format.
 - `authorization`: the key to call the API, which can be directly selected after application.
 
-Additionally, we set the Request Body, including:
+Additionally, the Request Body is set, including:
 
 - `action`: the action for this image generation task.
 - `size`: the size of the generated image result.
@@ -160,7 +160,7 @@ As you can see, the generated effect is the result of editing the original image
 ## Asynchronous Callback
 Due to the relatively long generation time of the Flux Images Generation API, which takes about 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
-The overall process is as follows: when the client initiates a request, an additional `callback_url` field is specified. After the client makes the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the result of the generated image will be sent to the `callback_url` specified by the client in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
+The overall process is as follows: when the client initiates a request, an additional `callback_url` field is specified. After the client makes the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the result of the generated image will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
 Let’s understand how to operate specifically through an example.
 
@@ -206,7 +206,7 @@ The content is as follows:
 }
 ```
 
-It can be seen that the result contains a `task_id` field, and the other fields are similar to the above, allowing the task to be associated through this field.
+It can be seen that the result contains a `task_id` field, and the other fields are similar to those mentioned above, allowing the task to be associated through this field.
 
 ## Error Handling
 
