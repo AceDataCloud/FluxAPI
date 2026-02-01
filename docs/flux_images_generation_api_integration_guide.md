@@ -10,7 +10,7 @@ To use the API, you need to first apply for the corresponding service on the [Fl
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota provided, allowing you to use the API for free.
+There is a free quota available for first-time applicants, allowing you to use the API for free.
 
 ## Basic Usage
 
@@ -20,7 +20,7 @@ First, understand the basic usage method, which involves inputting the prompt `p
 
 Here we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
+- `accept`: the format of the response result you want to receive, which is filled in as `application/json`, i.e., JSON format.
 - `authorization`: the key to call the API, which can be directly selected after application.
 
 Additionally, we set the Request Body, including:
@@ -51,7 +51,7 @@ After selection, you can see that the corresponding code is also generated on th
 
 <p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the above image, and we get the following result:
+Click the "Try" button to test, as shown in the image above, and we get the following result:
 
 ```json
 {
@@ -79,7 +79,7 @@ The returned result contains multiple fields, described as follows:
 - `task_id`: the ID of the image generation task at this time.
 - `trace_id`: the tracking ID of the image generation at this time.
 - `data`: the result list of the image generation task at this time.
-  - `image_url`: the link to the image generation task at this time.
+  - `image_url`: the link to the image generation task.
   - `prompt`: the prompt.
 
 We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link addresses in the `data` result.
