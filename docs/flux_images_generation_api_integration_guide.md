@@ -23,7 +23,7 @@ Here we can see that we have set the Request Headers, including:
 - `accept`: the format of the response result you want to receive, which is filled in as `application/json`, i.e., JSON format.
 - `authorization`: the key to call the API, which can be directly selected after application.
 
-Additionally, we set the Request Body, including:
+Additionally, the Request Body is set, including:
 
 - `action`: the action for this image generation task.
 - `size`: the size of the generated image result.
@@ -47,7 +47,7 @@ The parameter `size` has some special restrictions, mainly divided into two type
 
 Reference image ratios: "1:1", "16:9", "21:9", "3:2", "2:3", "4:5", "5:4", "3:4", "4:3", "9:16", "9:21",
 
-After selection, you can see that the corresponding code is also generated on the right side, as shown in the image below:
+After selection, you can see that the corresponding code is generated on the right side, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" class="m-auto"></p>
 
@@ -162,7 +162,7 @@ Due to the relatively long generation time of the Flux Images Generation API, wh
 
 The overall process is as follows: when the client initiates a request, an additional `callback_url` field is specified. After the client makes the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the result of the generated image will be sent to the `callback_url` specified by the client in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
-Let's understand how to operate specifically through an example.
+Let’s understand how to operate specifically through an example.
 
 First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL as shown in the image:
 
@@ -182,7 +182,7 @@ Clicking run, you will immediately receive a result as follows:
 }
 ```
 
-After a moment, we can observe the generated image result at `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`, as shown in the image:
+After a moment, we can observe the result of the generated image at `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`, as shown in the image:
 
 ![](https://cdn.acedata.cloud/v23lot.png)
 
