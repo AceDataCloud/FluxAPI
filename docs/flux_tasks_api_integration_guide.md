@@ -33,7 +33,7 @@ We will take a task ID returned by the Flux Images Generation API as an example 
 **Request Headers** include:
 
 - `accept`: Specifies that the response should be in JSON format, set to `application/json`.
-- `authorization`: The API key for calling the API, which can be selected directly after application.
+- `authorization`: The key to call the API, which can be selected directly after application.
 
 **Request Body** includes:
 
@@ -89,7 +89,7 @@ print(response.text)
 
 ### Response Example
 
-Upon successful request, the API will return the details of the image task. For example:
+Upon successful request, the API will return the details of the image task here. For example:
 
 ```json
 {
@@ -127,8 +127,8 @@ Upon successful request, the API will return the details of the image task. For 
 The returned result contains multiple fields, with the request field being the request body when the task was initiated, and the response field being the response body returned after the task is completed. The field descriptions are as follows.
 
 - `id`: The ID of the image task generated, used to uniquely identify this image generation task.
-- `request`: The request information in the image task.
-- `response`: The return information in the image task.
+- `request`: Query information about the request in the image task.
+- `response`: Query information about the response in the image task.
 
 ## Batch Query Operation
 
@@ -153,7 +153,7 @@ Some code examples are as follows:
 
 ### Response Example
 
-Upon successful request, the API will return the specific details of all batch image tasks. For example:
+Upon successful request, the API will return the specific details of all batch image tasks this time. For example:
 ```json
 {
   "items": [
@@ -222,11 +222,6 @@ Upon successful request, the API will return the specific details of all batch i
 }
 ```
 
-The return result contains multiple fields, among which items include the specific details of batch image tasks, and the specific information of each image task is the same as the format of the single task return result mentioned above. The field information is as follows.
-
-- `items`, all specific detail information of batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
-- `count`, the number of image tasks in this batch query.
-
 #### CURL
 
 ```bash
@@ -287,4 +282,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the FLux Tasks API to query all specific detail information of single or batch image tasks. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the FLux Tasks API to query the specific details of single or batch image tasks. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
