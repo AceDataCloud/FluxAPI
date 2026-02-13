@@ -1,6 +1,6 @@
 # Flux Image Generation API
 
-This service implements the integration of Flux AI and can be used to generate images and other content.
+Flux AI image generation service.
 
 API home page: [Ace Data Cloud - Flux Image Generation](https://platform.acedata.cloud/services/e8ebe055-429a-48e9-9d34-5089eae5fd89)
 
