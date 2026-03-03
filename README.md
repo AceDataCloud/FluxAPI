@@ -32,7 +32,7 @@ Here we can see that we have set the Request Headers, including:
 
 Additionally, we set the Request Body, including:
 
-- `action`: the action for this image generation task.
+- `action`: the action of this image generation task.
 - `size`: the size of the generated image result.
 - `count`: the number of images to generate, with a default value of 1; this parameter is only valid for image generation tasks and is invalid for editing tasks.
 - `prompt`: the prompt.
@@ -82,14 +82,14 @@ Click the "Try" button to test, as shown in the above image, and we get the foll
 
 The returned result contains multiple fields, described as follows:
 
-- `success`: the status of the image generation task at this time.
-- `task_id`: the ID of the image generation task at this time.
-- `trace_id`: the tracking ID of the image generation at this time.
-- `data`: the result list of the image generation task at this time.
-  - `image_url`: the link to the image generation task at this time.
-  - `prompt`: the prompt.
+- `success`, the status of the image generation task at this time.
+- `task_id`, the ID of the image generation task at this time.
+- `trace_id`, the tracking ID of the image generation at this time.
+- `data`, the result list of the image generation task at this time.
+  - `image_url`, the link to the image generation task at this time.
+  - `prompt`, the prompt.
 
-We can see that we have obtained satisfactory image information, and we only need to obtain the generated Flux image based on the image link address in the `data` result.
+We can see that we have obtained satisfactory image information, and we only need to retrieve the generated Flux images based on the image link addresses in the `data` result.
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -106,12 +106,12 @@ curl -X POST 'https://api.acedata.cloud/flux/images' \
 }'
 ```
 
-### Edit Image Task
+### Editing Image Tasks
 
-If you want to edit a specific image, the parameter `image_url` must first be passed with the link to the image that needs to be edited, at which point `action` only supports `edit`, and you can specify the following content:
+If you want to edit a specific image, the parameter `image_url` must first be passed with the link to the image that needs to be edited. At this time, `action` only supports `edit`, and you can specify the following content:
 
 - model: the model used for this image editing task, which currently supports `flux-kontext-max`, `flux-kontext-pro`.
-- image_url: the link to the image that needs to be uploaded for editing.
+- image_url: the uploaded image that needs to be edited.
 
 An example of the input is as follows:
 
@@ -169,7 +169,7 @@ Due to the relatively long generation time of the Flux Images Generation API, wh
 
 The overall process is as follows: when the client initiates a request, an additional `callback_url` field is specified. After the client makes the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the result of the generated image will be sent to the `callback_url` specified by the client in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
-Let's understand how to operate specifically through an example.
+Let’s understand how to operate specifically through an example.
 
 First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL as shown in the image:
 
@@ -189,7 +189,7 @@ Clicking run, you will immediately receive a result as follows:
 }
 ```
 
-After a moment, we can observe the result of the generated image at `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`, as shown in the image:
+After a moment, we can observe the generated image result at `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`, as shown in the image:
 
 ![](https://cdn.acedata.cloud/v23lot.png)
 
