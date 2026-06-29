@@ -39,9 +39,7 @@ The parameter `size` has some special restrictions, mainly divided into two type
 | flux-2-flex        | Supports aspect ratio x >= 64 must be a multiple of 32          |
 | flux-2-pro         | Supports aspect ratio x >= 64 must be a multiple of 32          |
 | flux-2-max         | Supports aspect ratio x >= 64 must be a multiple of 32          |
-| flux-pro-1.1       | Supports aspect ratio 256 <= x <= 1440 must be a multiple of 32 |
 | flux-dev           | Supports aspect ratio 256 <= x <= 1440 must be a multiple of 32 |
-| flux-pro-1.1-ultra | Does not support aspect ratio supports image ratio                     |
 | flux-kontext-pro   | Does not support aspect ratio supports image ratio                     |
 | flux-kontext-max   | Does not support aspect ratio supports image ratio                     |
 

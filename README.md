@@ -533,7 +533,7 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
 -H "Authorization: Bearer YOUR_API_KEY" \
 -H "Content-Type: application/json" \
 -d '{
-"model": "flux-pro-1.1",
+"model": "flux-2-pro",
 "prompt": "A futuristic cityscape at sunset",
 "width": 1024,
 "height": 1024,
@@ -702,11 +702,6 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
 <p>Ace Data Cloud offers various AI image generation and editing services</p>
 </div>
 <div class="fx-rel-grid">
-<a class="fx-rel-card" href="/services/midjourney">
-<span class="fx-rel-icon">🎨</span>
-<div class="fx-rel-info"><h3>Midjourney</h3><p>Top AI Painting</p></div>
-<span class="fx-rel-arrow">→</span>
-</a>
 <a class="fx-rel-card" href="/services/nano-banana">
 <span class="fx-rel-icon">🍌</span>
 <div class="fx-rel-info"><h3>Nano Banana</h3><p>Gemini Image Generation</p></div>
