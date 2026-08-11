@@ -45,11 +45,9 @@ The parameter `size` has some special restrictions, mainly divided into two type
 
 Reference image ratios: "1:1", "16:9", "21:9", "3:2", "2:3", "4:5", "5:4", "3:4", "4:3", "9:16", "9:21",
 
-After selection, you can see that the corresponding code is also generated on the right side, as shown in the image below:
+After selection, the corresponding code is generated on the right side. Before copying it, confirm that the authorization header uses your own API key; real credentials must never appear in documentation or screenshots.
 
-<p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" class="m-auto"></p>
-
-Click the "Try" button to test, as shown in the image above, and we get the following result:
+Click the "Try" button to test, and we get the following result:
 
 ```json
 {
