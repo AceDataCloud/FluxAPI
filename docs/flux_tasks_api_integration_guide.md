@@ -6,23 +6,21 @@ This document will provide detailed integration instructions for the Flux Tasks 
 
 ## Application Process
 
-To use the Flux Tasks API, you first need to apply for the corresponding service on the application page [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394), and then copy the task ID from the Flux Images Generation API, as shown in the image below:
+To use the Flux Images Generation API, first obtain your API Token from the [Ace Data Cloud Console](https://platform.acedata.cloud/console/applications) for future reference.
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" class="m-auto"></p>
+![](https://cdn.acedata.cloud/dvc3cg.jpg)
 
-Finally, go to the Flux Tasks API page [Flux Tasks API](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) to apply for the corresponding service. After entering the page, click the "Acquire" button, as shown in the image below.
+If you are not logged in or registered, you will be automatically redirected to the login page to invite you to register and log in, and will return to the current page upon completion.
 
-![Application Page](https://cdn.acedata.cloud/rci31i.png)
+**One API Token can call all services on the platform without needing to apply separately for each service.** The first application will grant a free quota for a trial experience; when the quota is insufficient, you can recharge the general balance in the [console](https://platform.acedata.cloud/console/coin).
 
-If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
-
-There is a free quota available for first-time applicants, allowing you to use this API for free.
+> 📘 Complete Documentation: [Flux Images Generation API →](https://platform.acedata.cloud/documents/flux-images)
 
 ## Request Example
 
 The Flux Tasks API can be used to query the results of the Flux Images Generation API. For information on how to use the Flux Images Generation API, please refer to the documentation [Flux Images Generation API](https://platform.acedata.cloud/documents/flux-images-integration).
 
-We will use a task ID returned by the Flux Images Generation API service as an example to demonstrate how to use this API. Suppose we have a task ID: 2db0168c-2373-4367-8d9a-9dc778802e8a, and we will demonstrate how to pass in a task ID.
+We will demonstrate how to use this API with an example task ID returned by the Flux Images Generation API. Suppose we have a task ID: 2db0168c-2373-4367-8d9a-9dc778802e8a, we will show how to pass in a task ID.
 
 ### Task Example Image
 
@@ -46,7 +44,7 @@ Set as shown in the image below:
 
 ### Code Example
 
-You can see that various language codes have been automatically generated on the right side of the page, as shown in the image below:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/j6gn86.png" width="500" class="m-auto"></p>
 
@@ -89,7 +87,7 @@ print(response.text)
 
 ### Response Example
 
-Upon a successful request, the API will return the detailed information of the image task here. For example:
+Upon successful request, the API will return the detailed information of the image task as shown in the following example:
 
 ```json
 {
@@ -98,6 +96,9 @@ Upon a successful request, the API will return the detailed information of the i
   "api_id": "deefc5d7-7f22-43e9-929e-f2b6afee60b7",
   "application_id": "001c2f84-2a4a-4c4d-ba3f-8a89f43b5be2",
   "created_at": 1736304669.779,
+  "started_at": 1736304669.839,
+  "finished_at": 1736304679.439,
+  "elapsed": 9.6,
   "credential_id": "b00bddd3-140f-4343-a9a2-affb312b60de",
   "request": {
     "action": "generate",
@@ -113,7 +114,7 @@ Upon a successful request, the API will return the detailed information of the i
     "data": [
       {
         "prompt": "a white siamese cat",
-        "image_url": "https://sf-maas-uat-prod.oss-cn-shanghai.aliyuncs.com/outputs/57d9ff7c-5a00-409e-9dcc-90f35b38d16e_0.png",
+        "image_url": "https://cdn.acedata.cloud/e724d7f13d.png",
         "seed": 281520112,
         "timings": {
           "inference": 3.193
@@ -124,11 +125,15 @@ Upon a successful request, the API will return the detailed information of the i
 }
 ```
 
-The returned result contains multiple fields, with the request field being the request body when the task was initiated, and the response field being the response body returned after the task is completed. The field descriptions are as follows.
+The returned result contains multiple fields, with the request field being the request body when the task was initiated, while the response field is the response body returned after the task is completed. The field descriptions are as follows.
 
 - `id`: The ID of the image task generated, used to uniquely identify this image generation task.
 - `request`: The request information in the image task.
 - `response`: The return information in the image task.
+- `created_at`: The task creation time, Unix timestamp (seconds, float).
+- `started_at`: The task start execution time, Unix timestamp (seconds, float).
+- `finished_at`: The task completion time, Unix timestamp (seconds, float). This field is not returned if the task is not completed.
+- `elapsed`: The time taken for task execution, in seconds (float, rounded to 3 decimal places). This field is not returned if the task is not completed.
 
 ## Batch Query Operation
 
@@ -145,7 +150,7 @@ Set as shown in the image below:
 
 ### Code Example
 
-You can see that various language codes have been automatically generated on the right side of the page, as shown in the image below:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/pt5fww.png" width="500" class="m-auto"></p>
 
@@ -153,7 +158,7 @@ Some code examples are as follows:
 
 ### Response Example
 
-Upon a successful request, the API will return the specific details of all batch image tasks this time. For example:
+Upon successful request, the API will return the specific details of all batch image tasks. For example:
 ```json
 {
   "items": [
@@ -163,6 +168,9 @@ Upon a successful request, the API will return the specific details of all batch
       "api_id": "deefc5d7-7f22-43e9-929e-f2b6afee60b7",
       "application_id": "001c2f84-2a4a-4c4d-ba3f-8a89f43b5be2",
       "created_at": 1736304669.779,
+      "started_at": 1736304669.839,
+      "finished_at": 1736304679.439,
+      "elapsed": 9.6,
       "credential_id": "b00bddd3-140f-4343-a9a2-affb312b60de",
       "request": {
         "action": "generate",
@@ -178,7 +186,7 @@ Upon a successful request, the API will return the specific details of all batch
         "data": [
           {
             "prompt": "a white siamese cat",
-            "image_url": "https://sf-maas-uat-prod.oss-cn-shanghai.aliyuncs.com/outputs/57d9ff7c-5a00-409e-9dcc-90f35b38d16e_0.png",
+            "image_url": "https://cdn.acedata.cloud/e724d7f13d.png",
             "seed": 281520112,
             "timings": {
               "inference": 3.193
@@ -193,6 +201,9 @@ Upon a successful request, the API will return the specific details of all batch
       "api_id": "deefc5d7-7f22-43e9-929e-f2b6afee60b7",
       "application_id": "001c2f84-2a4a-4c4d-ba3f-8a89f43b5be2",
       "created_at": 1736304976.278,
+      "started_at": 1736304976.338,
+      "finished_at": 1736304985.938,
+      "elapsed": 9.6,
       "credential_id": "b00bddd3-140f-4343-a9a2-affb312b60de",
       "request": {
         "action": "generate",
@@ -208,7 +219,7 @@ Upon a successful request, the API will return the specific details of all batch
         "data": [
           {
             "prompt": "a white siamese cat",
-            "image_url": "https://sf-maas-uat-prod.oss-cn-shanghai.aliyuncs.com/outputs/57b5c7e5-3436-466d-86ed-583ede4a3d7c_0.png",
+            "image_url": "https://cdn.acedata.cloud/e724d7f13d.png",
             "seed": 1437672535,
             "timings": {
               "inference": 3.175
@@ -222,9 +233,9 @@ Upon a successful request, the API will return the specific details of all batch
 }
 ```
 
-The returned result contains multiple fields, among which `items` includes the specific details of batch image tasks, and each image task's specific information is the same as the format of the single task return result mentioned above. The field information is as follows.
+The return result contains multiple fields, among which `items` includes the specific details of batch image tasks, and each image task's specific information is the same as the fields mentioned above.
 
-- `items`, all specific detail information of batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
+- `items`, all specific details of batch image tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
 - `count`, the number of image tasks in this batch query.
 
 #### CURL
@@ -287,4 +298,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the FLux Tasks API to query all specific detail information of single or batch image tasks. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the FLux Tasks API to query all specific details of single or batch image tasks. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
