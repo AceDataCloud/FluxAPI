@@ -206,7 +206,7 @@ Keywords: flux-api, ai-image, image-generation, black-forest-labs, rest-api, ai-
 .markdown-body .flux-page .fx-code { background: transparent !important; }
 .fx-code-grid {
   display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
   gap: 0 !important;
   align-items: stretch;
 }
@@ -450,7 +450,7 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
 @media (max-width: 980px) {
   .fx-stats { grid-template-columns: repeat(2, 1fr) !important; }
   .fx-feat-grid { grid-template-columns: 1fr !important; }
-  .fx-code-grid { grid-template-columns: 1fr !important; }
+  .fx-code-grid { grid-template-columns: minmax(0,1fr) !important; }
   .fx-code-left { padding: 0 0 32px 0; }
   .fx-steps { grid-template-columns: 1fr !important; gap: 24px !important; }
   .fx-step-conn { display: none; }
@@ -461,21 +461,23 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
   .fx-stats { grid-template-columns: 1fr !important; }
   .fx-rel-grid { grid-template-columns: 1fr !important; }
 }
+.flux-page .fx-code-grid>*{min-width:0}
+.flux-page .fx-code-wrap{max-width:100%;min-width:0}
 </style><div class="flux-page"><section class="flux-hero">
   <div class="fx-container">
     <div class="fx-badge"><span class="fx-badge-dot"></span>Black Forest Labs · AI Image Generation</div>
     <h1><span class="fx-brand">Flux</span> <span class="fx-sub">AI Image Generation API</span></h1>
-    <p class="hero-subtitle">Based on the Flux series models from Black Forest Labs, quickly generate and edit high-quality AI images through a unified API, supporting Flux Dev, Pro, Kontext, and the latest Flux 2 series.</p>
+    <p class="hero-subtitle">Based on Black Forest Labs' Flux series models, quickly generate and edit high-quality AI images through a unified API, with support for Flux Dev, Pro, Kontext, and the latest Flux 2 series.</p>
     <div class="fx-actions">
       <a class="fx-btn-primary" href="https://platform.acedata.cloud/documents/flux" target="_blank" rel="noopener">📄 View Documentation</a>
       <a class="fx-btn-secondary" href="/services/flux?tab=pricing">💰 View Pricing</a>
     </div>
     <div class="fx-highlights">
-      <span class="h-item">🎨 Text to Image & Image to Image</span>
+      <span class="h-item">🎨 Text-to-Image & Image-to-Image</span>
       <span class="h-div"></span>
       <span class="h-item">⚡ Multiple Models Available</span>
       <span class="h-div"></span>
-      <span class="h-item">🔗 Unified API Access</span>
+      <span class="h-item">🔗 Unified API Integration</span>
     </div>
   </div>
 </section>
@@ -483,9 +485,9 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
   <div class="fx-container">
     <div class="fx-stats">
       <div class="fx-stat"><div class="fx-stat-val">7+</div><div class="fx-stat-lbl">Flux Models Available</div></div>
-      <div class="fx-stat"><div class="fx-stat-val">2</div><div class="fx-stat-lbl">Operation Modes: Generate & Edit</div></div>
-      <div class="fx-stat"><div class="fx-stat-val">$0.023</div><div class="fx-stat-lbl">Minimum per Image</div></div>
-      <div class="fx-stat"><div class="fx-stat-val">0.5</div><div class="fx-stat-lbl">Free Quota</div></div>
+      <div class="fx-stat"><div class="fx-stat-val">2</div><div class="fx-stat-lbl">Modes: Generation & Editing</div></div>
+      <div class="fx-stat"><div class="fx-stat-val">$0.023</div><div class="fx-stat-lbl">Starting Per Image</div></div>
+      <div class="fx-stat"><div class="fx-stat-val">0.5</div><div class="fx-stat-lbl">Free Credits</div></div>
     </div>
   </div>
 </section>
@@ -493,28 +495,28 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
   <div class="fx-container">
     <div class="fx-header">
       <h2>Core Features</h2>
-      <p>Covers the entire process of image generation and editing, supporting various Flux models from basic to professional.</p>
+      <p>Covering the complete image generation and editing workflow, with a variety of Flux models ranging from basic to professional.</p>
     </div>
     <div class="fx-feat-grid">
       <div class="fx-feat-card">
         <div class="fx-feat-icon">🖼️</div>
-        <h3>High-Quality Text to Image</h3>
-        <p>Generate high-resolution images from natural language descriptions, supporting various models including Flux Dev, Pro, Kontext, and Flux 2 to meet different precision needs.</p>
+        <h3>High-Quality Text-to-Image</h3>
+        <p>Generate high-resolution images from natural language descriptions, with support for multiple models including Flux Dev, Pro, Kontext, and Flux 2 to meet different quality requirements.</p>
       </div>
       <div class="fx-feat-card">
         <div class="fx-feat-icon">✏️</div>
         <h3>Kontext Image Editing</h3>
-        <p>Use Flux Kontext Pro/Max models for context-aware image editing, accurately modifying local details of images while maintaining overall consistency.</p>
+        <p>Use Flux Kontext Pro/Max models for context-aware image editing, precisely modifying local image details while maintaining overall consistency.</p>
       </div>
       <div class="fx-feat-card">
         <div class="fx-feat-icon">🔄</div>
         <h3>Asynchronous Task Architecture</h3>
-        <p>Poll results using Task ID after submitting generation requests; the polling interface is completely free, suitable for batch and background processing scenarios.</p>
+        <p>After submitting a generation request, retrieve results by polling with the Task ID. The polling API is completely free, making it ideal for batch and background processing.</p>
       </div>
       <div class="fx-feat-card">
         <div class="fx-feat-icon">📐</div>
         <h3>Flexible Parameter Control</h3>
-        <p>Supports custom width, height, seed, quantity, and other parameters to precisely control generation results, meeting product-level image production needs.</p>
+        <p>Supports customizable parameters such as width, height, seed, and quantity, enabling precise control over generation results to meet production-grade image creation needs.</p>
       </div>
     </div>
   </div>
@@ -522,8 +524,8 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
   <div class="fx-container">
     <div class="fx-code-grid">
       <div class="fx-code-left">
-        <h2>One request to generate an image</h2>
-        <p>Use the standard RESTful API, authenticate with Bearer Token, and quickly submit image generation tasks.</p>
+        <h2>Generate images with a single request</h2>
+        <p>Use the standard RESTful API with Bearer Token authentication to quickly submit image generation tasks.</p>
       </div>
       <div>
         <div class="fx-code-wrap">
@@ -546,26 +548,26 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
 <section class="fx-section fx-bg-white">
   <div class="fx-container">
     <div class="fx-header">
-      <h2>Quick Start in 3 Steps</h2>
-      <p>From registration to generating the first image, it only takes a few minutes.</p>
+      <h2>Get started in 3 quick steps</h2>
+      <p>From registration to generating your first image, it only takes a few minutes.</p>
     </div>
     <div class="fx-steps">
       <div class="fx-step-conn fx-step-conn-1"></div>
       <div class="fx-step-conn fx-step-conn-2"></div>
       <div class="fx-step">
         <div class="fx-step-num">1</div>
-        <h3>Register and Get API Key</h3>
-        <p>Create an account on the platform and go to the console to generate the API key.</p>
+        <h3>Register and get an API Key</h3>
+        <p>Create an account on the platform, then go to the console to generate an API key.</p>
       </div>
       <div class="fx-step">
         <div class="fx-step-num">2</div>
-        <h3>Call the Image Generation API</h3>
-        <p>Use the <code>/flux/images</code> endpoint to submit a generation request and get the Task ID.</p>
+        <h3>Call the image generation API</h3>
+        <p>Use the <code>/flux/images</code> endpoint to submit a generation request and obtain a Task ID.</p>
       </div>
       <div class="fx-step">
         <div class="fx-step-num">3</div>
-        <h3>Poll for Results</h3>
-        <p>Query the task status through <code>/flux/tasks</code> to get the generated image.</p>
+        <h3>Poll for results</h3>
+        <p>Query the task status through <code>/flux/tasks</code> to retrieve the generated image.</p>
       </div>
     </div>
   </div>
@@ -573,39 +575,39 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
 <section class="fx-section fx-bg-gray">
   <div class="fx-container">
     <div class="fx-header">
-      <h2>What is Flux Suitable For?</h2>
-      <p>Various application scenarios to meet creative design and product-level image needs.</p>
+      <h2>What is Flux suitable for?</h2>
+      <p>Multiple application scenarios to meet creative design and production-grade image needs.</p>
     </div>
     <div class="fx-uc-grid">
       <div class="fx-uc-card">
         <div class="fx-uc-icon">🎨</div>
-        <h3>Creative Design</h3>
-        <p>Quickly generate concept images, illustrations, and design materials to accelerate the creative workflow.</p>
+        <h3>Creative design</h3>
+        <p>Quickly generate concept art, illustrations, and design assets to accelerate creative workflows.</p>
       </div>
       <div class="fx-uc-card">
         <div class="fx-uc-icon">🛒</div>
-        <h3>E-commerce Product Images</h3>
-        <p>Batch generate product display images and scene images to reduce shooting costs.</p>
+        <h3>E-commerce product images</h3>
+        <p>Generate product showcase images and lifestyle images in batches to reduce photography costs.</p>
       </div>
       <div class="fx-uc-card">
         <div class="fx-uc-icon">📱</div>
-        <h3>Social Media Content</h3>
-        <p>Quickly produce high-quality graphic content to enhance social media operation efficiency.</p>
+        <h3>Social media content</h3>
+        <p>Quickly create high-quality visual content to improve social media operation efficiency.</p>
       </div>
       <div class="fx-uc-card">
         <div class="fx-uc-icon">🎮</div>
-        <h3>Games and Entertainment</h3>
-        <p>Generate game characters and scene concept images to assist game development and content creation.</p>
+        <h3>Games and entertainment</h3>
+        <p>Generate game characters and scene concept art to support game development and content creation.</p>
       </div>
       <div class="fx-uc-card">
         <div class="fx-uc-icon">📝</div>
-        <h3>Image Editing</h3>
-        <p>Use the Kontext model for local editing to modify specific elements in the image.</p>
+        <h3>Image editing</h3>
+        <p>Use the Kontext model for localized editing to modify specific elements in images.</p>
       </div>
       <div class="fx-uc-card">
         <div class="fx-uc-icon">🏢</div>
-        <h3>Corporate Marketing</h3>
-        <p>Quickly produce advertising ideas, marketing materials, and brand visual content.</p>
+        <h3>Enterprise marketing</h3>
+        <p>Quickly produce advertising creatives, marketing materials, and brand visual content.</p>
       </div>
     </div>
   </div>
@@ -613,7 +615,7 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
   <div class="fx-container">
     <div class="fx-header">
       <h2>Flux API Pricing</h2>
-      <p>Billing is based on the number of images generated, with prices depending on the model. The polling interface is completely free.</p>
+      <p>Charged by the number of images generated; prices depend on the model. The polling API is completely free.</p>
     </div>
     <div class="price-wrap">
       <table class="price-table">
@@ -638,7 +640,7 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
           <tr class="price-hot">
             <td>Flux 2 Pro</td>
             <td><span class="price-amt">$0.027</span></td>
-            <td>Recommended · Next generation · Cost-effective</td>
+            <td>Recommended · Next generation · Great value</td>
           </tr>
           <tr>
             <td>Flux 2 Flex</td>
@@ -658,13 +660,13 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
           <tr>
             <td>Flux Kontext Max</td>
             <td><span class="price-amt">$0.075</span></td>
-            <td>Strongest editing capabilities</td>
+            <td>Most powerful editing capabilities</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="price-cta">
-      <p style="font-size:14px;color:#94a3b8;margin-top:16px;">Billing is based on multiples of <code>count</code> when generating multiple images · The polling task status interface <code>/flux/tasks</code> is completely free</p>
+      <p style="font-size:14px;color:#94a3b8;margin-top:16px;">For multiple images, charges are multiplied by the <code>count</code> value · The task status polling API <code>/flux/tasks</code> is completely free</p>
     </div>
   </div>
 </section><section class="fx-section fx-bg-gray">
@@ -676,23 +678,23 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
     <div class="fx-faq-list">
       <details class="fx-faq-item">
         <summary class="fx-faq-q"><span>What is the difference between Flux Dev and Flux Pro?</span><span class="fx-faq-chev">›</span></summary>
-        <div class="fx-faq-a"><p>Flux Dev is a model for development and testing, priced lower ($0.023/image). Flux Pro and the latest Flux 2 series are production-grade models with higher image quality and more detail, recommended for official products.</p></div>
+        <div class="fx-faq-a"><p>Flux Dev is a model for development and testing, with a lower price ($0.023/image). Flux Pro and the latest Flux 2 series are production-grade models with higher image quality and richer details, recommended for official products.</p></div>
       </details>
       <details class="fx-faq-item">
         <summary class="fx-faq-q"><span>What is the Kontext model for?</span><span class="fx-faq-chev">›</span></summary>
-        <div class="fx-faq-a"><p>The Flux Kontext model supports context-aware image editing—input an existing image along with text instructions to precisely modify specific parts of the image without affecting other areas.</p></div>
+        <div class="fx-faq-a"><p>The Flux Kontext model supports context-aware image editing—provide an existing image along with text instructions to precisely modify specific parts of the image without affecting other areas.</p></div>
       </details>
       <details class="fx-faq-item">
-        <summary class="fx-faq-q"><span>Is polling task status charged?</span><span class="fx-faq-chev">›</span></summary>
-        <div class="fx-faq-a"><p>No charge. The <code>/flux/tasks</code> interface is completely free, and charges only apply when submitting a generation request.</p></div>
+        <summary class="fx-faq-q"><span>Is polling task status billed?</span><span class="fx-faq-chev">›</span></summary>
+        <div class="fx-faq-a"><p>No. The <code>/flux/tasks</code> endpoint is completely free; charges apply only when submitting generation requests.</p></div>
       </details>
       <details class="fx-faq-item">
-        <summary class="fx-faq-q"><span>What image sizes are supported?</span><span class="fx-faq-chev">›</span></summary>
-        <div class="fx-faq-a"><p>Custom width and height parameters are supported. Common sizes include 1024×1024, 1024×1792, 1792×1024, etc. Kontext and Flux 2 series control output based on image ratios (e.g., 1:1, 16:9, 9:16).</p></div>
+        <summary class="fx-faq-q"><span>Which image sizes are supported?</span><span class="fx-faq-chev">›</span></summary>
+        <div class="fx-faq-a"><p>Custom width and height parameters are supported. Common sizes include 1024×1024, 1024×1792, and 1792×1024. The Kontext and Flux 2 series control output by image aspect ratio (such as 1:1, 16:9, and 9:16).</p></div>
       </details>
       <details class="fx-faq-item">
-        <summary class="fx-faq-q"><span>Can images be generated in bulk?</span><span class="fx-faq-chev">›</span></summary>
-        <div class="fx-faq-a"><p>Yes. Specify the number of images to generate per request using the <code>count</code> parameter, with costs calculated based on the quantity.</p></div>
+        <summary class="fx-faq-q"><span>Can images be generated in batches?</span><span class="fx-faq-chev">›</span></summary>
+        <div class="fx-faq-a"><p>Yes. Use the <code>count</code> parameter to specify the number of images generated per request; charges are calculated as a multiple of the quantity.</p></div>
       </details>
     </div>
   </div>
@@ -701,12 +703,12 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
   <div class="fx-container">
     <div class="fx-header">
       <h2>Explore More AI Image Services</h2>
-      <p>Ace Data Cloud offers a variety of AI image generation and editing services</p>
+      <p>Ace Data Cloud provides a variety of AI image generation and editing services</p>
     </div>
     <div class="fx-rel-grid">
       <a class="fx-rel-card" href="/services/dreamina">
         <span class="fx-rel-icon">🎨</span>
-        <div class="fx-rel-info"><h3>Dreamina</h3><p>Dream AI Painting</p></div>
+        <div class="fx-rel-info"><h3>Dreamina</h3><p>Dreamina AI Art</p></div>
         <span class="fx-rel-arrow">→</span>
       </a>
       <a class="fx-rel-card" href="/services/nano-banana">
@@ -728,8 +730,8 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
   </div>
 </section><section class="flux-cta">
   <div class="fx-container">
-    <h2>Get Started with Flux API</h2>
-    <p>Seamlessly access the entire range of Flux models and easily integrate AI image generation capabilities into your products.</p>
+    <h2>Start Using the Flux API Now</h2>
+    <p>Access the full Flux model lineup through a unified interface and easily integrate AI image generation into your product.</p>
     <div class="fx-actions">
       <a class="btn-cta-light" href="/services/flux">Get Started →</a>
       <a class="btn-cta-ghost" href="/support">Contact Support</a>
