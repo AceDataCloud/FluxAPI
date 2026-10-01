@@ -1,0 +1,1 @@
+$t(development_flux_generate_video)
