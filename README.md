@@ -761,7 +761,7 @@ Explore the supported endpoints and integration guides for Flux.
 | ---- | ---- | ------------ |
 | [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) | `/flux/images` | [Flux Images Generation API Integration Guide](https://platform.acedata.cloud/documents/92754994-3970-4f2a-9bf3-113149c25c11) |
 | [Flux Tasks API](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) | `/flux/tasks` | [Flux Tasks API Integration Guide](https://platform.acedata.cloud/documents/5998d153-b9a6-4798-b5d9-8f523d0d626f) |
-| [FLUX 3 Video](https://platform.acedata.cloud/documents/c3d7ffca-e1e0-5bd0-a656-60cafb2cbc67) | `/flux/videos` | [FLUX 3 Video](https://platform.acedata.cloud/documents/fe21229a-91ae-5906-82d5-87b552417b3e) |
+| [Flux Videos API](https://platform.acedata.cloud/documents/c3d7ffca-e1e0-5bd0-a656-60cafb2cbc67) | `/flux/videos` | [Flux Videos API](https://platform.acedata.cloud/documents/fe21229a-91ae-5906-82d5-87b552417b3e) |
 
 ## Related Resources
 
