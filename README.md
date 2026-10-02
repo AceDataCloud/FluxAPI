@@ -1,16 +1,16 @@
-# Flux Image Generation API
+# Flux API
 
 Flux AI image generation service.
 
 ![Platform](https://img.shields.io/badge/platform-Ace%20Data%20Cloud-0f766e?style=flat-square) ![API](https://img.shields.io/badge/type-AI%20API-2563eb?style=flat-square) ![Docs](https://img.shields.io/badge/docs-online-16a34a?style=flat-square)
 
-![Flux Image Generation](https://cdn.acedata.cloud/cdfv2n.jpg)
+![Flux](https://cdn.acedata.cloud/cdfv2n.jpg)
 
-API home page: [Ace Data Cloud - Flux Image Generation](https://platform.acedata.cloud/service/flux)
+API home page: [Ace Data Cloud - Flux](https://platform.acedata.cloud/service/flux)
 
 Keywords: flux-api, ai-image, image-generation, black-forest-labs, rest-api, ai-api, aiimage, flux, ai-video, AI API, REST API, Developer API
 
-## Why Use Flux Image Generation on Ace Data Cloud
+## Why Use Flux on Ace Data Cloud
 
 - Unified developer platform with one API key, billing system, and usage tracking
 - Production-ready AI API endpoints served from [https://api.acedata.cloud](https://api.acedata.cloud)
@@ -742,7 +742,7 @@ html.dark .flux-page code { background: #2e1065 !important; color: #c4b5fd !impo
 ## Quick Start
 
 - Base URL: [https://api.acedata.cloud](https://api.acedata.cloud)
-- Service page: [Flux Image Generation on Ace Data Cloud](https://platform.acedata.cloud/service/flux)
+- Service page: [Flux on Ace Data Cloud](https://platform.acedata.cloud/service/flux)
 - Docs: [Developer documentation](https://platform.acedata.cloud/documents/flux)
 - Demo: [Try the demo](https://studio.acedata.cloud/flux)
 
@@ -755,7 +755,7 @@ curl --request POST "https://api.acedata.cloud/flux/images" \
 
 ## APIs and Guides
 
-Explore the supported endpoints and integration guides for Flux Image Generation.
+Explore the supported endpoints and integration guides for Flux.
 
 | API | Path | Integration Guidance |
 | ---- | ---- | ------------ |
